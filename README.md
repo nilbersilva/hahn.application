@@ -15,7 +15,9 @@ $ git clone https://github.com/nilbersilva/hahn.applicaton
 $ cd hahn.applicaton
 
 #Restore packages for .net core project
-$ dotnet restore
+$ dotnet restore Hahn.ApplicatonProcess.February2021.Domain
+$ dotnet restore Hahn.ApplicatonProcess.February2021.Data
+$ dotnet restore Hahn.ApplicatonProcess.February2021.Web
 
 #Restore packages for aurelia app
 $ cd Hahn.ApplicatonProcess.February2021.App
@@ -23,7 +25,7 @@ $ yarn or npm install
 
 #Start backend
 $ cd ..
-$ dotnet run
+$ dotnet run Hahn.ApplicatonProcess.February2021.Web
 # Back-end application will run on https://localhost:5001
 
 #Start app - open another terminal
