@@ -9,10 +9,10 @@ Full CRUD Application using RepositoryPattern and UnitOfWork Pattern in ASP .NET
 
 ```bash
 # Clone this project
-$ git clone https://github.com/nilbersilva/hahn.applicaton
+$ git clone https://github.com/nilbersilva/hahn.application
 
 # Access folder
-$ cd hahn.applicaton
+$ cd hahn.application
 
 #Restore packages for .net core project
 $ dotnet restore Hahn.ApplicatonProcess.February2021.Web
@@ -27,7 +27,7 @@ $ dotnet run
 # Back-end application will run on https://localhost:5001
 
 #Start app - open another terminal
-Go to project folder hahn.applicaton
+Go to project folder hahn.application
 $ cd Hahn.ApplicatonProcess.February2021.App
 $ yarn start or npm run-script start
 
