@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  hahn.applicatonprocess.february2021.web:
+    image: ${DOCKER_REGISTRY-}hahnapplicatonprocessfebruary2021web
+    build:
+      context: .
+      dockerfile: Hahn.ApplicatonProcess.February2021.Web/Dockerfile
+    ports:
+       - "8080:80"
+    volumes:
+       - ./Logs:/app/Logs

@@ -1,0 +1,19 @@
+.spinnerCenter {
+  position: absolute;
+  left:0;
+  right:0;
+  top: 5%;
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btnMarginBot5 {
+  margin-bottom: 5px;
+}
+
+.editModaleditModal[open] {
+  background-color: rgb(255, 255, 254);
+  transition: background-color 0.01s ease;
+}

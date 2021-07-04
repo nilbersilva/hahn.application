@@ -1,0 +1,26 @@
+<template>
+  <require from="./index.css"></require>
+  <ux-dialog>
+      <ux-dialog-header>
+        <h2 t.two-way="config.title"></h2>
+      </ux-dialog-header>
+      <ux-dialog-body> 
+        <div class="row">
+            <div class="col-sm-1 justify-content-center align-self-center ml-2" if.bind="isYesNoDialog">
+                <i class="fa fa-question-circle fa-2x" ></i>
+            </div>
+            <div class="col-sm-1 justify-content-center align-self-center ml-2" if.bind="isOkDialog">
+                <i class="fa fa-exclamation-triangle fa-2x"></i>
+            </div>
+            <div class="col-sm-10 ml-2 msg">
+                <span class="align-middle" t.two-way="config.message"></span>
+            </div>        
+        </div>
+      </ux-dialog-body>
+      <ux-dialog-footer>
+          <button if.bind="isYesNoDialog" type="button" class="btn btn-primary" click.delegate="Ok()" t="keyYes"></button>
+          <button if.bind="isYesNoDialog" type="button" class="btn btn-secondary" click.delegate="Cancel()" t="keyNo"></button>
+          <button if.bind="isOkDialog" type="button" class="btn btn-primary" click.delegate="Ok()" t="keyOk"></button>
+      </ux-dialog-footer>
+  </ux-dialog>
+</template>

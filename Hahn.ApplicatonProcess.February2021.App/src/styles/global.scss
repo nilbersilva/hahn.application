@@ -1,0 +1,25 @@
+:root {
+  --background: #fff;
+  --black: #09090a;
+  --white: #fff;
+}
+
+ux-dialog-overlay.active {
+  background-color: black;
+  opacity: .6;
+}
+
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 0.4; 
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: black;
+  opacity: 0.4; 
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: black;
+  opacity: 0.4; 
+}

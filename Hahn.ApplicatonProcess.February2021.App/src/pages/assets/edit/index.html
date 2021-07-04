@@ -1,0 +1,81 @@
+<template >
+  <require from="./index.scss"></require>
+  <require from="./datepicker"></require>
+  <require from="./DisabledIfNotValid"></require>
+  <div id="editModal">
+    <ux-dialog>
+      <ux-dialog-header showCloseButton='true'> 
+            <h5 t.two-way="title"></h2>
+      </ux-dialog-header>
+      <ux-dialog-body>      
+        <form id="myform" role="form" submit.delegate="submit()" reset.delegate="reset()" tabindex="-1">
+          <div class="row">
+            <div class="form-group col-md-12 mb-2">
+              <label for="asset.assetName" t="keyAssetName"></label>
+              <input  id="asset.assetName" t="[placeholder]keyAssetName" autocomplete="off" 
+              readonly.bind="!allowEdit" attach-focus.bind="allowEdit"
+              type="text" class="form-control editor"  value.two-way="asset.assetName & validateOnChange">
+            </div>
+          </div>      
+          <div class="row">
+              <div class="form-group col-md-6  mb-2">
+                  <label for="asset.department" t="keyDepartment"></label>
+                  <select  id="asset.department"  t="[placeholder]keyChooseDepartment"  disabled.bind="!allowEdit" class="form-control editor" value.two-way="asset.department & validateOnChange">
+                    <option repeat.for="[key, value] of departments" value='${key}' t="key${value}">   
+                                  
+                    </option>
+                  </select>
+              </div>
+              <div class="form-group col-md-6  mb-2">
+                  <label for="asset.country" t="keyCountry"></label>
+                  <select id="asset.country"  t="[placeholder]keyChooseCountry" disabled.bind="!allowEdit" class="form-control editor"  value.two-way="asset.country & validateOnChange">
+                    <option repeat.for="[key, value] of countries" value='${key}' >
+                      ${value.translation}
+                    </option>
+                </select>
+            </div>
+          </div>   
+          <div class="row">
+              <div class="form-group col-md-6 mb-2">
+                  <label for="asset.purchaseDate" t="keyPurchaseDate"></label>
+                  <input id="asset.purchaseDate" datepicker type="text" class="form-control" placeholder.bind="dateFormat" 
+                  disabled.bind="!allowEdit" autocomplete="off" 
+                  value.two-way="asset.purchaseDate & validateOnChange"/>
+              </div>
+              <div class="form-group col-md-6  mb-2">
+                  <label for="asset.email" t="keyEmail"></label>
+                  <input  id="asset.email" type="email" class="form-control editor" disabled.bind="!allowEdit" placeholder="email@domain.com" value.two-way="asset.email & validateOnChange">
+              </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-6 mb-2">
+              <div class="custom-control custom-checkbox" >
+                <input id="asset.broken" type="checkbox" class="custom-control-input" checked.two-way="asset.broken & validateOnChange" disabled.bind="!allowEdit">
+                <label class="custom-control-label" for="asset.broken" t="keyAssetIsBroken"></label>
+              </div>
+            </div>
+          </div>
+          <hr class="mb-4">
+          <div class="p-2 mb-2 bg-success text-white" if.bind="showSucess" t="keyAssetChanged"></div>
+          <div if.bind="isBusy" class="btn" >
+              <spinner type="S12" style-class="" size="20" color="#007bff"></spinner>
+          </div>          
+          <button type="submit" class="btn btn-primary btn-lg" t="keySend" form="myform" 
+            if.bind="!isBusy && allowEdit && !showSucess " disabled.bind="!(formIsFilled && buttonActive)"></button>
+          <button type="reset" class="btn btn-secondary btn-lg" t="keyReset" form="myform" disabled.bind="!formAnyIsFilled" if.bind="!isBusy && allowEdit && !showSucess "></button>  
+          <button id="closeBtn" class="btn btn-light btn-lg" t="keyClose" if.bind="!isBusy && !showSucess" click.delegate="dialogController.cancel()"></button>  
+          
+        </form>
+      </ux-dialog-body>
+      <!-- <ux-dialog-footer>
+        <div if.bind="isBusy" class="btn" >
+          <spinner type="S12" style-class="" size="20" color="#007bff"></spinner>
+        </div>
+        <button type="submit" class="btn btn-primary" t="keySend" form="myform" if.bind="!isBusy && allowEdit"></button>
+        <button type="reset" class="btn btn-secondary" t="keyReset" form="myform" if.bind="!isBusy && allowEdit"></button>  
+        <button  class="btn btn-light" t="keyClose" if.bind="!isBusy" click.delegate="dialogController.cancel()"></button>  
+      </ux-dialog-footer> -->
+    </ux-dialog>
+  <div>
+  
+</template>
